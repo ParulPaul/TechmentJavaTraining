@@ -62,7 +62,7 @@ public String toString() {
 
 @Override
 public int compareTo(Patient o) {
-	// TODO Auto-generated method stub
+	
 	return 0;
 }
 
@@ -76,7 +76,7 @@ class NameSorting implements Comparator<Patient>
 
 	@Override
 	public int compare(Patient o1, Patient o2) {
-		// TODO Auto-generated method stub
+		
 		
 		
 		return o1.getName().compareTo(o2.getName());
@@ -90,7 +90,7 @@ class AgeSorting implements Comparator<Patient>
 
 	@Override
 	public int compare(Patient o1, Patient o2) {
-		// TODO Auto-generated method stub
+		
 		if(o1.getAge()==o2.getAge())
 			return 0;
 		else if (o1.getAge()>o2.getAge())
@@ -109,11 +109,11 @@ public class TestPatientList {
 	private static final String String = null;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 
-		Patient patient1 = new Patient(1,"Krishna",26);
-		Patient patient2 = new Patient(2,"Krish",26);
-		Patient patient3 = new Patient(3,"Anmol",24);
+		Patient patient1 = new Patient(1,"parul",20);
+		Patient patient2 = new Patient(2,"aayushi",21);
+		Patient patient3 = new Patient(3,"shephali",24);
 		
 		
 		ArrayList <Patient> patients = new ArrayList<Patient>();
