@@ -3,29 +3,30 @@ package logicalAssisments;
 import java.util.Scanner;
 
 public class RightAngelTriangle {
-	
-	public static void main(String args[]) {
-	
-	Scanner sc = new Scanner(System.in);
-	
-	int side1 = sc.nextInt();
-	System.out.println("Enter the 1st side");
-	int side2 = sc.nextInt();
-	System.out.println("Enter the 2nd side");
-	int side3 =sc.nextInt();
-	System.out.println("Enter the 3rd side");
+		public static void triangle(int side1,int side2,int side3) {
+		
+		if(side1> side2+side3)   
+			System.out.println("Triangle can be formed!");
+		else if(side2 > side1+side3)
+			System.out.println("Triangle can be formed!");
+		else if(side3 > side2+side1)
+			System.out.println("Triangle can be formed!");
+		else
+			System.out.println("Triangle can not be formed!");
+}
+	public static void main(String[] args) {
+		int side1,side2,side3;
+		Scanner scanner = new Scanner(System.in); 
+		
+		
+		System.out.println("Enter the first side of triangle");
+		side1=scanner.nextInt();
+		System.out.println("Enter the second side of triangle");
+		side2=scanner.nextInt();
+		System.out.println("Enter the third side of triangle");
+		side3=scanner.nextInt();
+		
+		triangle(side1,side2,side3);
 
-	{
-	if(side1 * side2 == side2 * side2 + side3 * side3
-			|| side2 * side2 == side1 * side1 + side3 * side3
-			|| side3 * side3 == side1 * side1 + side2 * side2)
-	   {
-	    	System.out.print("Right Angled Triangle");
 	}
-	else
-	{
-		System.out.print("Not a Right Angled Triangle");	
-	}
-	}
- }
 }
