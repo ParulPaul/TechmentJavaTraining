@@ -42,7 +42,8 @@ public class MySqlConnectionDemo {
 				
 				catch (Exception e)
 				{
-					e.printStackTrace();
+					System.out.println(e);
+				//	e.printStackTrace();
 				}
 				
 

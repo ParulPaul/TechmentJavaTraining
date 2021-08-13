@@ -49,7 +49,8 @@ public class PraparedDemo2 {
 			
 			catch (Exception e)
 			{
-				e.printStackTrace();
+				System.out.println(e);
+				//e.printStackTrace();
 			}
 			
 
