@@ -19,10 +19,10 @@ int TotalScore =0;
 		
 		HashMap<String,Integer> hm = new HashMap<String,Integer>();
 		hm.put("Rahul",35);
-		hm.put("Dhoni",150);
+		hm.put("Dhoni",10);
 		hm.put("Kohli",45);		
 		hm.put("Rahane",20);
-		hm.put("Rohit", 200);
+		hm.put("Rohit", 50);
 				
 		TreeMap<String,Integer> sorted = new TreeMap(hm);
 		
