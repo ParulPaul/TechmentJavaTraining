@@ -1,0 +1,78 @@
+package oopsAssignment;
+
+interface Rewardable
+{
+	void calculateRewardPoints(double amount);
+}
+
+abstract class PrepaidCard
+{
+	int cardNo;
+	double availableBalance;
+	double swipeLimit;
+	
+	abstract boolean swipeCard(double amount);
+
+	@Override
+	public String toString() {
+		return "PrepaidCard [cardNo=" + cardNo + ", availableBalance=" + availableBalance + ", swipeLimit=" + swipeLimit
+				+ "]";
+	}
+	
+	public void rechargeCard(double amount)
+	{
+		this.availableBalance = this.availableBalance + amount;
+		System.out.println("Your balance: "+this.availableBalance);
+	}
+	
+}
+
+class TravelCard extends PrepaidCard implements Rewardable
+{
+
+	double rewardPoints;
+	
+	@Override
+	boolean swipeCard(double amount) {
+		
+		if(availableBalance > amount && swipeLimit >= amount)
+			return true;
+		return false;
+	}
+	
+	
+	public void calculateRewardPoints(double amount)
+	{
+		if(amount > 100)
+		{
+			rewardPoints = (amount / 100) * 5;
+		}
+		System.out.println("Reward Points added: "+rewardPoints);
+	}
+	
+	public void swiped(double amount)
+	{
+		if(swipeCard(amount))
+		{
+			availableBalance = (availableBalance - (amount + (amount * 0.05 )));
+		}
+		System.out.println("Amount withdrawn: "+amount);
+		System.out.println("Balance available: "+availableBalance);
+		calculateRewardPoints(amount);
+	}
+	
+}
+
+public class Exercise3 {
+
+	public static void main(String[] args) 
+	{
+		
+		TravelCard tc = new TravelCard();
+		tc.cardNo = 00000001;
+		tc.availableBalance = 10000.00;
+		tc.swipeLimit = 1000.00;
+		tc.swiped(1000);
+	}
+
+}
