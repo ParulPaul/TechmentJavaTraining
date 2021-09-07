@@ -1,0 +1,5 @@
+package com.techment.repository;
+
+public interface IEmployeeRepository {
+
+}

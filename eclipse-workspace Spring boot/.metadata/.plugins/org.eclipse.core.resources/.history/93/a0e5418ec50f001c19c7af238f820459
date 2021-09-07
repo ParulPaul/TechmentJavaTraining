@@ -1,0 +1,61 @@
+package com.techment.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.techment.dto.CustomerDto;
+import com.techment.entity.Customer;
+import com.techment.exeception.IDNotFoundException;
+import com.techment.service.ICustomerService;
+
+@RestController
+@RequestMapping(value="/customerController")
+public class CustomerController {
+
+	@Autowired
+	ICustomerService customerService;
+	
+	@GetMapping(value="/viewAllCustomers")
+	public List<CustomerDto> viewAllCustomer()
+	{
+		return customerService.viewAllCustomers();
+		
+	}
+
+	@PostMapping(value= "/insertCustomer")
+	public String addNewCustomer(@RequestBody CustomerDto customer) {
+		customerService.addCustomer(customer);
+		return "inertion done";
+		
+	}
+	
+	@GetMapping(value="/customerById/id")
+	public CustomerDto getbyId(@PathVariable int id)
+	{
+		CustomerDto customerDto =customerService.viewCustomerById(id);
+		return customerDto;
+		
+	}
+
+	@ExceptionHandler(value= IDNotFoundException.class)
+	public ResponseEntity<Object> handlingException(IDNotFoundException exception)
+	{
+		return new ResponseEntity<Object>(exception.getMsg(),HttpStatus.NOT_FOUND);
+		
+	}
+
+	
+	
+
+	
+}

@@ -1,0 +1,13 @@
+package com.techment.service;
+
+import java.util.List;
+
+import com.techment.entity.Course;
+
+public interface ICourseService {
+
+	String addCourse(Course course);
+	List<Course> viewAllCourses();
+	Course viewCourseById(int id);
+	
+}
