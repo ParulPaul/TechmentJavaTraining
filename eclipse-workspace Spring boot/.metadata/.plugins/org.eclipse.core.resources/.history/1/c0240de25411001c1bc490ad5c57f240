@@ -3,7 +3,6 @@ package com.techment.Entiity;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TestingCase {
@@ -15,15 +14,6 @@ class TestingCase {
 		assertTrue(true);
 		System.out.println("before ");
 	}
-	
-
-	@BeforeEach
-	void test11()
-	{
-	
-		assertTrue(true);
-		System.out.println("before each");
-	}	
 
 	@Test
 	void testFindMax() {

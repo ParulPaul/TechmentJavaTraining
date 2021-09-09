@@ -6,11 +6,11 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /****
- * JUnit tutorial provides basic and advanced concepts of unit testing in java with examples. 
- * Our junit tutorial is designed for beginners and professionals.
+ *
    It is an open-source testing framework for java programmers. 
    The java programmer can create test cases and test his/her own code.
    It is one of the unit testing framework. Current version is junit 4.
@@ -36,7 +36,7 @@ public class TestingCases {
 	//@BeforeClass annotation specifies that method will be invoked only once, before starting all the tests.
 	@BeforeClass  
     public static void setUpBeforeClass() throws Exception {  
-        System.out.println("before class");  
+        System.out.println("before-class");  
     }  
 	
 	//@Before annotation specifies that method will be invoked before each test.
@@ -44,13 +44,19 @@ public class TestingCases {
     public void setUp() throws Exception {  
         System.out.println("before");  
     }  
+    
+    //@BeforeEach is used to signal that the annotated method should be executed before each @Test method in the current test class.
+    @BeforeEach  
+    public void setUpForEach() throws Exception {  
+        System.out.println("before");  
+    } 
   
     //@Test annotation specifies that method is the test method.
     @Test  
     public void testFindMax(){  
         System.out.println("test case find max");  
         assertEquals(5,Cal.findMax(new int[]{1,3,4,2,5}));
-       
+      
     }  
     
     @Test  

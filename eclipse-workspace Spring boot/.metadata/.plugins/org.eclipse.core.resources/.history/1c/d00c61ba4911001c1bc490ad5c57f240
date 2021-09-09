@@ -1,0 +1,76 @@
+package com.techment.Entity;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
+class MyTesting {
+
+	
+	Calculation calculation = new Calculation();
+	
+	@Before
+	void test10()
+	{
+		System.out.println("before test");
+		assertTrue(true);
+	}
+	
+	@Before
+	void test11()
+	{
+		System.out.println("before all");
+		assertTrue(true);
+	}	
+	
+	@Test
+	void test() {
+	//excepted value =6
+		assertEquals(5, calculation.add(2, 4));
+	}
+
+	@Test
+	void test2() {
+		
+		assertNotEquals(6, calculation.add(2, 4));
+	}
+	
+	@Test
+	void test3()
+	{
+		assertEquals("eligible", calculation.checkEligibilty(17));
+	}
+
+	@Test
+	void test4() 
+	
+		{
+	 // assertTrue(calculation.name.contains("d"));
+		assertTrue(calculation.name.contains("d"));
+	
+	}
+	
+	void test5() {
+		assertFalse(calculation.name.contains("a"));
+	}
+	
+	@Test
+	void test6() {
+		
+		assertThrows(ArithmeticException.class, ()->{ int a=1; int b=0; System.out.println(a/b);});
+		
+	}
+	
+	@Test
+	void test7() {
+		
+		assertThrows(IllegalArgumentException.class, ()->{Integer.parseInt("1");});
+	}
+	
+	@Test
+	void test8() {
+		
+		assertThrows(IllegalArgumentException.class, ()->{Integer.parseInt("a");});
+	}
+}
