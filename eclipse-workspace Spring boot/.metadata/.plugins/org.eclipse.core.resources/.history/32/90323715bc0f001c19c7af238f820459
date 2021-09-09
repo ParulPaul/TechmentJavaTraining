@@ -1,5 +1,0 @@
-package com.techment.exeception;
-
-public class IDNotFoundException {
-
-}
